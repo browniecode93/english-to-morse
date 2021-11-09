@@ -44,9 +44,7 @@ Each message will be sent to the consumer service via RabbitMQ, you will be able
 
 Sample:
 
-consumer message: 
-![consumer](https://i.ibb.co/1mkwp65/Screen-Shot-2021-11-09-at-5-46-07-PM.png)
+![consumer_service](https://i.ibb.co/1mkwp65/Screen-Shot-2021-11-09-at-5-46-07-PM.png)
 
-Created message:
-![message](https://i.ibb.co/BwvbSr2/Screen-Shot-2021-11-09-at-5-46-40-PM.png)
+![encode_service](https://i.ibb.co/BwvbSr2/Screen-Shot-2021-11-09-at-5-46-40-PM.png)
 
