@@ -18,7 +18,7 @@ class MessageViewSet(viewsets.ViewSet):
         serializer.is_valid()
         serializer.validated_data['morse_msg'] = encrypt(serializer.validated_data['eng_msg'])
         serializer.save()
-        publish()
+        publish(serializer.data)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def retrieve(self, request, pk=None):
@@ -32,6 +32,7 @@ class MessageViewSet(viewsets.ViewSet):
         serializer.is_valid(raise_exception=True)
         serializer.validated_data['morse_msg'] = encrypt(serializer.validated_data['eng_msg'])
         serializer.save()
+        publish(serializer.data)
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
     def destroy(self, request, pk=None):
