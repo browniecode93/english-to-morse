@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from .models import Message
 from .serializers import MessageSerializer
 from .translate import encrypt
+from .producer import publish
 
 class MessageViewSet(viewsets.ViewSet):
 
@@ -17,17 +18,19 @@ class MessageViewSet(viewsets.ViewSet):
         serializer.is_valid()
         serializer.validated_data['morse_msg'] = encrypt(serializer.validated_data['eng_msg'])
         serializer.save()
+        publish()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def retrieve(self, request, pk=None):
-        product = Message.objects.get(id=pk)
-        serializer = Message(product)
+        message = Message.objects.get(id=pk)
+        serializer = MessageSerializer(message)
         return Response(serializer.data)
 
     def update(self, request, pk=None):
         product = Message.objects.get(id=pk)
         serializer = MessageSerializer(instance=product, data=request.data)
         serializer.is_valid(raise_exception=True)
+        serializer.validated_data['morse_msg'] = encrypt(serializer.validated_data['eng_msg'])
         serializer.save()
         return Response(serializer.data, status=status.HTTP_202_ACCEPTED)
 
