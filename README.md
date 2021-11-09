@@ -42,5 +42,8 @@ DELETE http://localhost:8000/api/message/id
 
 Each message will be sent to the consumer service via RabbitMQ, you will be able to see it on docker log each time you create a message
 
-![consumer](https://ibb.co/fxsPKv5)
-![message](https://ibb.co/TrJ6FbM)
+Sample:
+
+![consumer](https://i.ibb.co/1mkwp65/Screen-Shot-2021-11-09-at-5-46-07-PM.png)
+![message](https://i.ibb.co/BwvbSr2/Screen-Shot-2021-11-09-at-5-46-40-PM.png)
+
