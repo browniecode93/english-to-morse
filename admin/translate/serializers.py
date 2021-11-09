@@ -5,5 +5,5 @@ from .models import Message
 class MessageSerializer(serializers.ModelSerializer):
     class Meta:
         model = Message
-        fields = ["eng_msg"]  # and whatever other fields you want to expose
+        fields = ["eng_msg", "morse_msg"]  # and whatever other fields you want to expose
         extra_kwargs = {"morse_msg": {"required": False, "allow_null": True}}
